@@ -1,8 +1,10 @@
-This Script scan from ADF, preprocess and upload do Docspell.
+# scanadf2docspell
+
+This script scans from the ADF (Automatic Document Feeder), preprocesses it and uploads it to Docspell.
 
 ![Overview](overview.png)
 
-# Prerequisites
+## Prerequisites
 
 * A running [Docspell](https://github.com/eikek/docspell) instance.
 * Any Linux distro (tested on Ubuntu 20.04)
@@ -19,7 +21,7 @@ This Script scan from ADF, preprocess and upload do Docspell.
         * Maybe also as sudo to see if it's an privileges problem
         * If yes try `sudo adduser <username> lp` and logout/login and restart scanner
 
-# Install
+## Install
 
 * Clone the repository
   ```bash
@@ -37,7 +39,7 @@ This Script scan from ADF, preprocess and upload do Docspell.
     docspell_url = http://YOUR_DOCSPELL_URL
     ```
 
-# Scan
+## Scan
 
 * insert a document in your scanner and run
     ```bash
@@ -77,6 +79,6 @@ This Script scan from ADF, preprocess and upload do Docspell.
   --skip_length_trimming By default length of the scans is trimmed to DIN A4 ratio. Enable this to skip trimming page lengths.
   ```
 
-# Contribution
+## Contribution
 
 Suggestions, feature requests, ideas to improve the script? Feel free to open an issue or send a pull request :)  
