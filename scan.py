@@ -31,7 +31,7 @@ if __name__ == '__main__':
     parser.add('--docspell_url', required=True, help="Url to docspell, e.g. http://<docpsell_host>:7880/")
     parser.add('-n', '--name', type=str, default=uuid.uuid1(), help='Name of the scan. Default is a random String')
     parser.add('-d', '--duplex', action='store_true', help='Scan front and back pages')
-    parser.add('-o', '--color', action='store_true', help='Do a colored scan')
+    parser.add('-c', '--color', action='store_true', help='Do a colored scan')
     parser.add('--keep_scans', action='store_true', help='Do not delete raw scans')
     parser.add('--keep_pdf', action='store_true', help='Do not delete combined pdf')
     parser.add('--empty_threshold', type=float,

@@ -64,7 +64,7 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
   --docspell_url DOCSPELL_URL Url to docspell, e.g. http://<docpsell_host>:7880/ 
   -n NAME, --name NAME Name of the scan. Default is a random String 
   -d, --duplex Scan front and back pages 
-  -o, --color Do a colored scan 
+  -c, --color Do a colored scan 
   --keep_scans Do not delete raw scans 
   --keep_pdf Do not delete combined pdf 
   --empty_threshold EMPTY_THRESHOLD Threshold to determine if a page is empty. The emptier a document is, the smaller it' value becomes. 
