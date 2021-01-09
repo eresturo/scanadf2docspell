@@ -32,4 +32,5 @@ class Utils:
             for page in tqdm(pages, file=sys.stdout, desc='Clean up all pages...'):
                 page.unload_image()
                 self.remove_if_exists(scan_path / page.filename)
-                self.remove_if_exists(scan_path / page.processed_filename)
+                if page.processed_filename:
+                    self.remove_if_exists(scan_path / page.processed_filename)
