@@ -4,6 +4,7 @@ This Script scan from ADF, preprocess and upload do Docspell.
 
 # Prerequisites
 
+* A running [Docspell](https://github.com/eikek/docspell) instance.
 * Any Linux distro (tested on Ubuntu 20.04)
 * Install system requirements (apt command on Ubuntu:)
   ```bash
