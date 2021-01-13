@@ -18,7 +18,8 @@ class Scanner:
         color_mode = 'Color' if self.config.color else 'Gray'
         print(f'scan all pages using color mode: "{color_mode}" and source: {source} ...')
         device_filter = f'-d {self.config.device}' if self.config.device else ''
-        scan_command = f'scanadf {device_filter} --mode {color_mode} --source {source} --resolution {self.config.resolution} -o {filepath}'
+        start_count = f'--start-count {self.config.start_count}' if self.config.start_count else ''
+        scan_command = f'scanadf {device_filter} {start_count} --mode {color_mode} --source {source} --resolution {self.config.resolution} -o {filepath}'
         print(scan_command)
         system(scan_command)
 

@@ -49,5 +49,7 @@ if __name__ == '__main__':
                help='By default empty pages are deleted. Enable this to skip empty page deletion.')
     parser.add('--skip_length_trimming', action='store_true',
                help='By default length of the scans is trimmed to DIN A4 ratio. Enable this to skip trimming page lengths.')
+    parser.add('--start_count', type=int,
+               help='Overwrite the first page number. Useful if the scan was canceled and you want to resume a scan.')
     args = parser.parse_args()
     main(config=args)
