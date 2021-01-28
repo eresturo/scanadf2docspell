@@ -12,8 +12,7 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
   ```bash
   sudo apt install sane python3 python3-pip libmagickwand-dev img2pdf sane-utils
   ```
-* Setup sane to have [scanadf](https://linux.die.net/man/1/scanadf) avalaible.
-* See if scanadf is able to find your scanner
+* See if [scanadf](https://linux.die.net/man/1/scanadf) is able to find your scanner
   ```
   scanadf -L
   ```
@@ -43,7 +42,7 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
 
 * insert a document in your scanner and run
     ```bash
-    ./scan.py -c custom.conf
+    ./scan.py
     ```
 * See help for further configuration options.
   ```bash
