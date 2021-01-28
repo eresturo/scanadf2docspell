@@ -45,4 +45,4 @@ class Preprocessor:
 
     @staticmethod
     def _trim_image(page):
-        page.image.trim(fuzz=0.3 * page.image.quantum_range, color='white')
+        page.image.trim(fuzz=0.2 * page.image.quantum_range, color='white')
