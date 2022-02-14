@@ -14,9 +14,11 @@ class Utils:
             return True
         print("open preview...")
         subprocess.call(['xdg-open', Path('scans') / f'{self.config.name}.pdf'])
-        print('Happy with the result? Upload? [y|n]: ')
-        answer = input()
-        return answer.lower() == 'y'
+        answer = ''
+        while answer != 'y' and answer != 'n':
+            print('Happy with the result? Upload? [y|n]: ')
+            answer = input().lower()
+        return answer == 'y'
 
     @staticmethod
     def remove_if_exists(file):
