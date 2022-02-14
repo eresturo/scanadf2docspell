@@ -17,7 +17,9 @@ class Preprocessor:
         page.load_image()
         if not self.config.skip_length_trimming:
             self._crop_height_dina4_ratio(page)
-        if self.config.duplex and page.is_backside and not self.config.skip_backside_rotation:
+        if (self.config.duplex or self.config.manual_duplex) \
+                and page.is_backside \
+                and not self.config.skip_backside_rotation:
             self._rotate_page(page)
         if not self.config.skip_trim_pages:
             self._trim_image(page)

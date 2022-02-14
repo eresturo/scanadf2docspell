@@ -14,7 +14,11 @@ def main(config):
     preprocessor = Preprocessor(config)
     utils = Utils(config)
 
-    scanner.scan()
+    scanner.scan(front=True)
+    if config.manual_duplex:
+        print('rotate pages and press enter')
+        input()
+        scanner.scan(front=False)
     pages = scanner.get_pages()
     preprocessor.process(pages)
     exporter = Exporter(config)
@@ -24,6 +28,11 @@ def main(config):
     utils.clean_up(pages)
 
 
+def validate_config(config):
+    if config.manual_duplex and config.duplex:
+        raise ValueError('Canot use automatic duplex and manual duplex together!')
+
+
 if __name__ == '__main__':
     parser = ArgParser(description='Scan from ADF, preprocess and upload do Docspell.',
                        default_config_files=['defaults.conf', 'custom.conf'])
@@ -31,6 +40,8 @@ if __name__ == '__main__':
     parser.add('--docspell_url', required=True, help="Url to docspell, e.g. http://<docpsell_host>:7880/")
     parser.add('-n', '--name', type=str, default=uuid.uuid1(), help='Name of the scan. Default is a random String')
     parser.add('-d', '--duplex', action='store_true', help='Scan front and back pages')
+    parser.add('-m', '--manual_duplex', action='store_true',
+               help='Scan front pages using ADF. Manual rotate pages. Scan back pages using ADF.')
     parser.add('-f', '--flatbed', action='store_true',
                help='Scan from flatbed and using scanimage\'s batch mode instead of scanadf.')
     parser.add('-c', '--color', action='store_true', help='Do a colored scan')
@@ -54,4 +65,5 @@ if __name__ == '__main__':
     parser.add('--start_count', type=int,
                help='Overwrite the first page number. Useful if the scan was canceled and you want to resume a scan.')
     args = parser.parse_args()
+    validate_config(args)
     main(config=args)

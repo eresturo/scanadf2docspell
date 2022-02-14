@@ -1,14 +1,13 @@
-import re
 from pathlib import Path
 
 from wand.image import Image
 
 
 class Page:
-    def __init__(self, filename, duplex=False):
+    def __init__(self, filename, is_backside=False):
         self.filename = filename
         self.processed_filename = None
-        self.is_backside = duplex and bool(re.match(r'.*_\d{3}[02468].ppm', filename))
+        self.is_backside = is_backside
         self.image = None
         self.removed = False
 
