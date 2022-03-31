@@ -88,8 +88,7 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
     
     Args that start with '--' (eg. --api_key) can also be set in a config file (defaults.conf or custom.conf). Config file syntax allows: key=value, flag=true, stuff=[a,b,c] (for details, see
     syntax at https://goo.gl/R74nmi). If an arg is specified in more than one place, then commandline values override config file values which override defaults.
-
-```
+  ```
 
 ## Contribution
 
