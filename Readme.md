@@ -12,9 +12,9 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
   ```bash
   sudo apt install sane python3 python3-pip libmagickwand-dev img2pdf sane-utils
   ```
-* See if [scanadf](https://linux.die.net/man/1/scanadf) is able to find your scanner
+* See if [scanimage](https://linux.die.net/man/1/scanimage) is able to find your scanner
   ```
-  scanadf -L
+  scanimage -L
   ```
     * if scanner is not found -> check `sane-find-scanner`
         * Maybe also as sudo to see if it's an privileges problem
@@ -37,6 +37,20 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
     api_key = YOUR_API_KEY
     docspell_url = http://YOUR_DOCSPELL_URL
     ```
+
+### Scanner specific adjustments
+
+Unfortunately, `scanimage` arguments are partially dependent on the scanner. Therefore, a customized configuration per
+scanner may be necessary. For this purpose, you can specify with which command a flatbed, with which a single-page adf
+scan and with which a duplex adf scan can be triggered.
+
+| tested Scanners        | Config `(custom.conf)`                                                                                                                                                                            |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Epson XP 860 (default) | `command_flatbed = --source Flatbed`<br>`command_adf = --source "Automatic Document Feeder" --adf-mode Simplex`<br>`command_duplex_adf = --source "Automatic Document Feeder" --adf-mode Duplex` |
+| HP 5590                | `command_flatbed = --source Flatbed`<br>`command_adf = --source ADF`<br>`command_duplex_adf = --source "ADF Duplex"`
+
+**Note**: This list is far from complete. Which scanner do you use and which configuration is needed? Please tell us in
+an issue or pull request.
 
 ## Scan
 

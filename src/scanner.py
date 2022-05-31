@@ -17,15 +17,22 @@ class Scanner:
             suffix = '_front' if front else '_back'
         filename = f'"{self.config.name}"_%04d{suffix}.{self.config.scan_format}'
         filepath = self.scan_folder / filename
-        source = f'"{self.config.source}"'
-        adf_mode = f'Duplex' if self.config.duplex else 'Simplex'
+
+        if self.config.flatbed and self.config.duplex:
+            raise ValueError('Flatbed and Duplex mode can not be selected together, choose one')
+        scan_mode = self.config.command_adf
+        if self.config.flatbed:
+            scan_mode = self.config.command_flatbed
+        if self.config.duplex:
+            scan_mode = self.config.command_duplex_adf
+
         color_mode = 'Color' if self.config.color else 'Gray'
-        print(f'scan all pages using color mode: "{color_mode}" and source: {source} ...')
+        print(f'scan all pages using scan mode: "{scan_mode}" and color mode: "{color_mode}" ...')
         device_filter = f'-d {self.config.device}' if self.config.device else ''
 
-        batch_promt = '--batch-prompt' if self.config.manual_document_feeder else ''
+        batch_promt = '--batch-prompt' if self.config.flatbed else ''
         batch_start = f'--batch-start {self.config.start_count}' if self.config.start_count else ''
-        scan_command = f'scanimage {device_filter} --mode {color_mode} --source {source} --adf-mode {adf_mode} --resolution {self.config.resolution} {batch_start} --batch={filepath} {batch_promt} --format {self.config.scan_format}'
+        scan_command = f'scanimage {device_filter} {scan_mode} --mode {color_mode} --resolution {self.config.resolution} {batch_start} --batch={filepath} {batch_promt} --format {self.config.scan_format}'
 
         print(scan_command)
         system(scan_command)

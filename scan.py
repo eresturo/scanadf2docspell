@@ -42,8 +42,8 @@ if __name__ == '__main__':
     parser.add('-d', '--duplex', action='store_true', help='Scan front and back pages')
     parser.add('-m', '--manual_duplex', action='store_true',
                help='Scan front pages using ADF. Manual rotate pages. Scan back pages using ADF.')
-    parser.add('-f', '--manual_document_feeder', action='store_true',
-               help='Manually scan one page after the other (probably from flatbed).')
+    parser.add('-f', '--flatbed', action='store_true',
+               help='Manually scan one page after the other from flatbed.')
     parser.add('-c', '--color', action='store_true', help='Do a colored scan')
     parser.add('--keep_scans', action='store_true', help='Do not delete raw scans')
     parser.add('--keep_pdf', action='store_true', help='Do not delete combined pdf')
@@ -51,8 +51,12 @@ if __name__ == '__main__':
                help='Threshold to determine if a page is empty. The emptier a document is, the smaller it\' value becomes.')
     parser.add('--device', help='Device name (e.g. SCANNER_ABC). Default: None (use systems default scanner)')
     parser.add('--resolution', help='Scan resolution in dpi')
-    parser.add('--source', help='Scanners source')
-    parser.add('--source_duplex', help='Scanners source in duplex mode')
+    parser.add('--command_flatbed',
+               help='scanimage option to perform a flatbed scan (it\'s depending on your scanner).')
+    parser.add('--command_adf',
+               help='scanimage option to perform a single-page adf scan (it\'s depending on your scanner).')
+    parser.add('--command_duplex_adf',
+               help='scanimage option to perform a duplex adf scan (it\'s depending on your scanner).')
     parser.add('--preview', help='Show a preview before uploading to docspell')
     parser.add('--skip_backside_rotation', action='store_true',
                help='In duplex mode backsides are rotated, so the scripts rotates them back. Enable this to skip rotation.')
