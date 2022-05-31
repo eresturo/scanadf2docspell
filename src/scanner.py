@@ -17,14 +17,15 @@ class Scanner:
             suffix = '_front' if front else '_back'
         filename = f'"{self.config.name}"_%04d{suffix}.{self.config.scan_format}'
         filepath = self.scan_folder / filename
-        source = f'"{self.config.source_duplex}"' if self.config.duplex else self.config.source
+        source = f'"{self.config.source}"'
+        adf_mode = f'Duplex' if self.config.duplex else Simplex
         color_mode = 'Color' if self.config.color else 'Gray'
         print(f'scan all pages using color mode: "{color_mode}" and source: {source} ...')
         device_filter = f'-d {self.config.device}' if self.config.device else ''
 
         batch_promt = '--batch-prompt' if self.config.manual_document_feeder else ''
         batch_start = f'--batch-start {self.config.start_count}' if self.config.start_count else ''
-        scan_command = f'scanimage {device_filter} --mode {color_mode} --source {source} --resolution {self.config.resolution} {batch_start} --batch={filepath} {batch_promt} --format {self.config.scan_format}'
+        scan_command = f'scanimage {device_filter} --mode {color_mode} --source {source} --adf-mode {adf_mode} --resolution {self.config.resolution} {batch_start} --batch={filepath} {batch_promt} --format {self.config.scan_format}'
 
         print(scan_command)
         system(scan_command)
