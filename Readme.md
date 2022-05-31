@@ -1,5 +1,7 @@
 # scanadf2docspell
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/93918da606a5461c8f2493580104e457)](https://app.codacy.com/gh/eresturo/scanadf2docspell?utm_source=github.com&utm_medium=referral&utm_content=eresturo/scanadf2docspell&utm_campaign=Badge_Grade_Settings)
+
 This script scans from the ADF (Automatic Document Feeder), preprocesses it and uploads it to Docspell.
 
 ![Overview](overview.png)
