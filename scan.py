@@ -42,8 +42,8 @@ if __name__ == '__main__':
     parser.add('-d', '--duplex', action='store_true', help='Scan front and back pages')
     parser.add('-m', '--manual_duplex', action='store_true',
                help='Scan front pages using ADF. Manual rotate pages. Scan back pages using ADF.')
-    parser.add('-f', '--flatbed', action='store_true',
-               help='Scan from flatbed and using scanimage\'s batch mode instead of scanadf.')
+    parser.add('-f', '--manual_document_feeder', action='store_true',
+               help='Manually scan one page after the other (probably from flatbed).')
     parser.add('-c', '--color', action='store_true', help='Do a colored scan')
     parser.add('--keep_scans', action='store_true', help='Do not delete raw scans')
     parser.add('--keep_pdf', action='store_true', help='Do not delete combined pdf')
@@ -64,6 +64,8 @@ if __name__ == '__main__':
                help='By default length of the scans is trimmed to DIN A4 ratio. Enable this to skip trimming page lengths.')
     parser.add('--start_count', type=int,
                help='Overwrite the first page number. Useful if the scan was canceled and you want to resume a scan.')
+    parser.add('--scan_format', type=str, default='pnm',
+               help='Specifies the format in which to scan. However, the format is only temporary, scans are always converted to jpg and then bundled as pdf.')
     args = parser.parse_args()
     validate_config(args)
     main(config=args)
