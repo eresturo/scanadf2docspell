@@ -18,7 +18,7 @@ class Scanner:
         filename = f'"{self.config.name}"_%04d{suffix}.{self.config.scan_format}'
         filepath = self.scan_folder / filename
         source = f'"{self.config.source}"'
-        adf_mode = f'Duplex' if self.config.duplex else Simplex
+        adf_mode = f'Duplex' if self.config.duplex else 'Simplex'
         color_mode = 'Color' if self.config.color else 'Gray'
         print(f'scan all pages using color mode: "{color_mode}" and source: {source} ...')
         device_filter = f'-d {self.config.device}' if self.config.device else ''
