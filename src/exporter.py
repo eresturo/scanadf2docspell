@@ -8,12 +8,11 @@ class Exporter:
     def __init__(self, config):
         self.config = config
 
-    @staticmethod
-    def save_as_jpg(page):
+    def save_as_jpg(self, page):
         if page.removed:
             return
         page.load_image(load_processed=True)
-        page.processed_filename = page.filename.replace('.ppm', '.jpg')
+        page.processed_filename = page.filename.replace(f'.{self.config.scan_format}', '.jpg')
         page.image.save(filename=Path('scans') / page.processed_filename)
 
     def save_as_pdf(self, pages):

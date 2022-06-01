@@ -8,6 +8,7 @@ from src.exporter import Exporter
 class Preprocessor:
     def __init__(self, config):
         self.config = config
+        self.exporter = Exporter(config)
 
     def process(self, pages):
         for page in tqdm(pages, file=sys.stdout, desc='Preprocess all pages...'):
@@ -25,7 +26,7 @@ class Preprocessor:
             self._trim_image(page)
         if not self.config.skip_empty_page_removal:
             self._remove_page_if_empty(page)
-        Exporter.save_as_jpg(page)
+        self.exporter.save_as_jpg(page)
         page.unload_image()
 
     def _remove_page_if_empty(self, page):

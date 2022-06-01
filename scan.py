@@ -43,7 +43,7 @@ if __name__ == '__main__':
     parser.add('-m', '--manual_duplex', action='store_true',
                help='Scan front pages using ADF. Manual rotate pages. Scan back pages using ADF.')
     parser.add('-f', '--flatbed', action='store_true',
-               help='Scan from flatbed and using scanimage\'s batch mode instead of scanadf.')
+               help='Manually scan one page after the other from flatbed.')
     parser.add('-c', '--color', action='store_true', help='Do a colored scan')
     parser.add('--keep_scans', action='store_true', help='Do not delete raw scans')
     parser.add('--keep_pdf', action='store_true', help='Do not delete combined pdf')
@@ -51,8 +51,12 @@ if __name__ == '__main__':
                help='Threshold to determine if a page is empty. The emptier a document is, the smaller it\' value becomes.')
     parser.add('--device', help='Device name (e.g. SCANNER_ABC). Default: None (use systems default scanner)')
     parser.add('--resolution', help='Scan resolution in dpi')
-    parser.add('--source', help='Scanners source')
-    parser.add('--source_duplex', help='Scanners source in duplex mode')
+    parser.add('--command_flatbed',
+               help='scanimage option to perform a flatbed scan (it\'s depending on your scanner).')
+    parser.add('--command_adf',
+               help='scanimage option to perform a single-page adf scan (it\'s depending on your scanner).')
+    parser.add('--command_duplex_adf',
+               help='scanimage option to perform a duplex adf scan (it\'s depending on your scanner).')
     parser.add('--preview', help='Show a preview before uploading to docspell')
     parser.add('--skip_backside_rotation', action='store_true',
                help='In duplex mode backsides are rotated, so the scripts rotates them back. Enable this to skip rotation.')
@@ -64,6 +68,8 @@ if __name__ == '__main__':
                help='By default length of the scans is trimmed to DIN A4 ratio. Enable this to skip trimming page lengths.')
     parser.add('--start_count', type=int,
                help='Overwrite the first page number. Useful if the scan was canceled and you want to resume a scan.')
+    parser.add('--scan_format', type=str, default='pnm',
+               help='Specifies the format in which to scan. However, the format is only temporary, scans are always converted to jpg and then bundled as pdf.')
     args = parser.parse_args()
     validate_config(args)
     main(config=args)
