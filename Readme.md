@@ -60,10 +60,10 @@ scanner may be necessary. For this purpose, you can specify with which command a
 scan and with which a duplex adf scan can be triggered.
 
 <!-- markdownlint-disable no-inline-html -->
-| tested Scanners| Config `(custom.conf)` |
-| --- | --- |
+| tested Scanners        | Config `(custom.conf)`                                                                                                                                                                              |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Epson XP 860 (default) | `command_flatbed: '--source Flatbed'`<br>`command_adf: '--source "Automatic Document Feeder" --adf-mode Simplex'`<br>`command_duplex_adf: '--source "Automatic Document Feeder" --adf-mode Duplex'` |
-| HP 5590 | `command_flatbed: '--source Flatbed'`<br>`command_adf: '--source ADF'`<br>`command_duplex_adf: '--source "ADF Duplex"'` |
+| HP 5590                | `command_flatbed: '--source Flatbed'`<br>`command_adf: '--source ADF'`<br>`command_duplex_adf: '--source "ADF Duplex"'`                                                                             |
 <!-- markdownlint-enable no-inline-html -->
 
 **Note**: This list is far from complete. Which scanner do you use and which configuration is needed? Please tell us in

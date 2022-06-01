@@ -1,8 +1,7 @@
 import sys
 
-from tqdm import tqdm
-
 from src.exporter import Exporter
+from tqdm import tqdm
 
 
 class Preprocessor:
@@ -11,16 +10,18 @@ class Preprocessor:
         self.exporter = Exporter(config)
 
     def process(self, pages):
-        for page in tqdm(pages, file=sys.stdout, desc='Preprocess all pages...'):
+        for page in tqdm(pages, file=sys.stdout, desc="Preprocess all pages..."):
             self._process_image(page)
 
     def _process_image(self, page):
         page.load_image()
         if not self.config.skip_length_trimming:
             self._crop_height_dina4_ratio(page)
-        if (self.config.duplex or self.config.manual_duplex) \
-                and page.is_backside \
-                and not self.config.skip_backside_rotation:
+        if (
+            (self.config.duplex or self.config.manual_duplex)
+            and page.is_backside
+            and not self.config.skip_backside_rotation
+        ):
             self._rotate_page(page)
         if not self.config.skip_trim_pages:
             self._trim_image(page)
@@ -33,7 +34,10 @@ class Preprocessor:
         empty_threshold = 100 * page.image.standard_deviation / page.image.quantum_range
         if empty_threshold < self.config.empty_threshold:
             page.removed = True
-            print(f'remove blank page: {page.filename} because {empty_threshold} < {self.config.empty_threshold}')
+            print(
+                f"remove blank page: {page.filename} "
+                f"because {empty_threshold} < {self.config.empty_threshold}"
+            )
 
     @staticmethod
     def _crop_height_dina4_ratio(page):
@@ -48,4 +52,4 @@ class Preprocessor:
 
     @staticmethod
     def _trim_image(page):
-        page.image.trim(fuzz=0.2 * page.image.quantum_range, color='white')
+        page.image.trim(fuzz=0.2 * page.image.quantum_range, color="white")

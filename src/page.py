@@ -14,7 +14,7 @@ class Page:
     def load_image(self, load_processed=False):
         if not self.image:
             filename = self.processed_filename if load_processed else self.filename
-            self.image = Image(filename=Path('scans') / filename)
+            self.image = Image(filename=Path("scans") / filename)
 
     def unload_image(self):
         del self.image

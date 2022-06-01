@@ -1,7 +1,8 @@
-venv
-custom.conf
-scans
-.idea
+/venv/
+/custom.conf
+/scans/
+/.idea/
+/report/
 # Created by .ignore support plugin (hsz.mobi)
 ### macOS template
 # General
@@ -212,4 +213,3 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
