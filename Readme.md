@@ -8,7 +8,6 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
 [![Known Vulnerabilities](https://snyk.io/test/github/eresturo/scanadf2docspell/badge.svg)](https://snyk.io/test/github/eresturo/scanadf2docspell)
 [![GitHub Super-Linter](https://github.com/eresturo/scanadf2docspell/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/eresturo/scanadf2docspell/actions/workflows/super-linter.yml)
 
-
 ![Overview](overview.png)
 
 ## Prerequisites
@@ -16,30 +15,39 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
 * A running [Docspell](https://github.com/eikek/docspell) instance.
 * Any Linux distro (tested on Ubuntu 20.04)
 * Install system requirements (apt command on Ubuntu:)
+
   ```bash
   sudo apt install sane python3 python3-pip libmagickwand-dev img2pdf sane-utils
   ```
+
 * See if [scanimage](https://linux.die.net/man/1/scanimage) is able to find your scanner
-  ```
+
+  ```bash
   scanimage -L
   ```
-    * if scanner is not found -> check `sane-find-scanner`
-        * Maybe also as sudo to see if it's an privileges problem
-        * If yes try `sudo adduser <username> lp` and logout/login and restart scanner
+
+  * if scanner is not found -> check `sane-find-scanner`
+    * Maybe also as sudo to see if it's an privileges problem
+    * If yes try `sudo adduser <username> lp` and logout/login and restart scanner
 
 ## Install
 
 * Clone the repository
+
   ```bash
   git clone https://github.com/eresturo/scanadf2docspell
   ```
+
 * Install requirements
+
   ```bash
   cd scanadf2docpsell
   pip3 install -r requirements.txt
   ```
+
 * Generate a API-Key, as described [here](https://docspell.org/docs/webapp/uploading/#anonymous-upload)
 * create a config file `custom.conf`
+
     ```yaml
     api_key: 'YOUR_API_KEY'
     docspell_url: 'http://YOUR_DOCSPELL_URL'
@@ -51,10 +59,12 @@ Unfortunately, `scanimage` arguments are partially dependent on the scanner. The
 scanner may be necessary. For this purpose, you can specify with which command a flatbed, with which a single-page adf
 scan and with which a duplex adf scan can be triggered.
 
-| tested Scanners        | Config `(custom.conf)`                                                                                                                                                                             |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+<!-- markdownlint-disable no-inline-html -->
+| tested Scanners| Config `(custom.conf)` |
+| --- | --- |
 | Epson XP 860 (default) | `command_flatbed: '--source Flatbed'`<br>`command_adf: '--source "Automatic Document Feeder" --adf-mode Simplex'`<br>`command_duplex_adf: '--source "Automatic Document Feeder" --adf-mode Duplex'` |
-| HP 5590                | `command_flatbed: '--source Flatbed'`<br>`command_adf: '--source ADF'`<br>`command_duplex_adf: '--source "ADF Duplex"'`
+| HP 5590 | `command_flatbed: '--source Flatbed'`<br>`command_adf: '--source ADF'`<br>`command_duplex_adf: '--source "ADF Duplex"'` |
+<!-- markdownlint-enable no-inline-html -->
 
 **Note**: This list is far from complete. Which scanner do you use and which configuration is needed? Please tell us in
 an issue or pull request.
@@ -62,14 +72,17 @@ an issue or pull request.
 ## Scan
 
 * insert a document in your scanner and run
+
     ```bash
     ./scan.py
     ```
+
 * See help for further options.
+
   ```bash
   ./scan.py --help
   ```
 
 ## Contribution
 
-Suggestions, feature requests, ideas to improve the script? Feel free to open an issue or send a pull request :)  
+Suggestions, feature requests, ideas to improve the script? Feel free to open an issue or send a pull request :)
