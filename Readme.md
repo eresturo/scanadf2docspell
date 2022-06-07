@@ -6,7 +6,7 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eresturo_scanadf2docspell&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eresturo_scanadf2docspell)
 [![CodeFactor](https://www.codefactor.io/repository/github/eresturo/scanadf2docspell/badge)](https://www.codefactor.io/repository/github/eresturo/scanadf2docspell)
 [![Known Vulnerabilities](https://snyk.io/test/github/eresturo/scanadf2docspell/badge.svg)](https://snyk.io/test/github/eresturo/scanadf2docspell)
-[![GitHub Super-Linter](https://github.com/eresturo/scanadf2docspell/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/eresturo/scanadf2docspell/actions/workflows/super-linter.yml)
+[![MegaLinter](https://github.com/eresturo/scanadf2docspell/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/eresturo/scanadf2docspell/actions/workflows/mega-linter.yml)
 
 ![Overview](overview.png)
 
