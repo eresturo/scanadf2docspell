@@ -50,10 +50,10 @@ it to Docspell.
   described [here](https://docspell.org/docs/webapp/uploading/#anonymous-upload)
 * create a config file `custom.conf`
 
-    ```yaml
-    api_key: 'YOUR_API_KEY'
-    docspell_url: 'http://YOUR_DOCSPELL_URL'
-    ```
+  ```yaml
+  api_key: 'YOUR_API_KEY'
+  docspell_url: 'http://YOUR_DOCSPELL_URL'
+  ```
 
 ### Scanner specific adjustments
 
