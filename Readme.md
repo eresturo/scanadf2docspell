@@ -1,6 +1,7 @@
 # scanadf2docspell
 
-This script scans from the ADF (Automatic Document Feeder), preprocesses it and uploads it to Docspell.
+This script scans from the ADF (Automatic Document Feeder), preprocesses it and uploads
+it to Docspell.
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f3370d96dd974f419b9d23c7fb0f2f22)](https://www.codacy.com/gh/eresturo/scanadf2docspell/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eresturo/scanadf2docspell&amp;utm_campaign=Badge_Grade)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eresturo_scanadf2docspell&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eresturo_scanadf2docspell)
@@ -45,7 +46,8 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
   pip3 install -r requirements.txt
   ```
 
-* Generate a API-Key, as described [here](https://docspell.org/docs/webapp/uploading/#anonymous-upload)
+* Generate a API-Key, as
+  described [here](https://docspell.org/docs/webapp/uploading/#anonymous-upload)
 * create a config file `custom.conf`
 
     ```yaml
@@ -55,27 +57,32 @@ This script scans from the ADF (Automatic Document Feeder), preprocesses it and 
 
 ### Scanner specific adjustments
 
-Unfortunately, `scanimage` arguments are partially dependent on the scanner. Therefore, a customized configuration per
-scanner may be necessary. For this purpose, you can specify with which command a flatbed, with which a single-page adf
+Unfortunately, `scanimage` arguments are partially dependent on the scanner. Therefore,
+a customized configuration per
+scanner may be necessary. For this purpose, you can specify with which command a
+flatbed, with which a single-page adf
 scan and with which a duplex adf scan can be triggered.
 
 <!-- markdownlint-disable no-inline-html -->
+
 | tested Scanners        | Config `(custom.conf)`                                                                                                                                                                              |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Epson XP 860 (default) | `command_flatbed: '--source Flatbed'`<br>`command_adf: '--source "Automatic Document Feeder" --adf-mode Simplex'`<br>`command_duplex_adf: '--source "Automatic Document Feeder" --adf-mode Duplex'` |
 | HP 5590                | `command_flatbed: '--source Flatbed'`<br>`command_adf: '--source ADF'`<br>`command_duplex_adf: '--source "ADF Duplex"'`                                                                             |
+
 <!-- markdownlint-enable no-inline-html -->
 
-**Note**: This list is far from complete. Which scanner do you use and which configuration is needed? Please tell us in
+**Note**: This list is far from complete. Which scanner do you use and which
+configuration is needed? Please tell us in
 an issue or pull request.
 
 ## Scan
 
 * insert a document in your scanner and run
 
-    ```bash
-    ./scan.py
-    ```
+  ```bash
+  ./scan.py
+  ```
 
 * See help for further options.
 
@@ -85,4 +92,5 @@ an issue or pull request.
 
 ## Contribution
 
-Suggestions, feature requests, ideas to improve the script? Feel free to open an issue or send a pull request :)
+Suggestions, feature requests, ideas to improve the script? Feel free to open an issue
+or send a pull request :)

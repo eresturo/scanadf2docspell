@@ -76,9 +76,9 @@ class Scanner:
             )
             if len(front_pages) != len(back_pages):
                 raise AssertionError("Same number of front and back pages needed!")
-            for i in range(len(front_pages)):
-                pages.append(Page(front_pages[i], is_backside=False))
-                pages.append(Page(back_pages[i], is_backside=True))
+            for idx, front_page in enumerate(front_pages):
+                pages.append(Page(front_page, is_backside=False))
+                pages.append(Page(back_pages[idx], is_backside=True))
         else:
             for file in sorted(
                 Path("scans").glob(f"{self.config.name}_*.{self.config.scan_format}")
