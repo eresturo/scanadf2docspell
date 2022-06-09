@@ -1,5 +1,5 @@
 Wand~=0.6.7
 tqdm~=4.64.0
 img2pdf~=0.4.4
-requests~=2.27.1
+requests~=2.28.0
 ConfigArgParse~=1.5
