@@ -6,7 +6,6 @@ it to Docspell.
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f3370d96dd974f419b9d23c7fb0f2f22)](https://www.codacy.com/gh/eresturo/scanadf2docspell/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eresturo/scanadf2docspell&amp;utm_campaign=Badge_Grade)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eresturo_scanadf2docspell&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eresturo_scanadf2docspell)
 [![CodeFactor](https://www.codefactor.io/repository/github/eresturo/scanadf2docspell/badge)](https://www.codefactor.io/repository/github/eresturo/scanadf2docspell)
-[![Known Vulnerabilities](https://snyk.io/test/github/eresturo/scanadf2docspell/badge.svg)](https://snyk.io/test/github/eresturo/scanadf2docspell)
 [![MegaLinter](https://github.com/eresturo/scanadf2docspell/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/eresturo/scanadf2docspell/actions/workflows/mega-linter.yml)
 
 ![Overview](overview.png)
