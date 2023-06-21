@@ -1,4 +1,4 @@
-Wand~=0.6.10
+Wand~=0.6.11
 tqdm~=4.65.0
 img2pdf~=0.4.4
 requests~=2.28.2
