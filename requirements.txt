@@ -3,3 +3,4 @@ tqdm~=4.65.0
 img2pdf~=0.4.4
 requests~=2.31.0
 ConfigArgParse~=1.5
+pillow>=10.0.1 # not directly required, pinned by Snyk to avoid a vulnerability
