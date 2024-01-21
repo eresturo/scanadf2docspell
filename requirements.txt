@@ -3,4 +3,4 @@ tqdm~=4.66.1
 img2pdf~=0.4.4
 requests~=2.31.0
 ConfigArgParse~=1.7
-pillow>=10.0.1
+pillow>=10.2.0
