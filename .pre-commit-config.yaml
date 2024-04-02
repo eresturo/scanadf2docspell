@@ -1,5 +1,5 @@
 repos:
-  - repo: https://github.com/megalinter/megalinter
+  - repo: https://github.com/oxsecurity/megalinter
     rev: v5.13.0 # Git tag specifying the hook, not mega-linter-runner, version
     hooks:
       - id: megalinter # Faster, less thorough, runs pre-commit by default
