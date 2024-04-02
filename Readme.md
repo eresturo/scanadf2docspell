@@ -3,7 +3,7 @@
 This script scans from the ADF (Automatic Document Feeder), preprocesses it and uploads
 it to Docspell.
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f3370d96dd974f419b9d23c7fb0f2f22)](https://www.codacy.com/gh/eresturo/scanadf2docspell/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eresturo/scanadf2docspell&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f3370d96dd974f419b9d23c7fb0f2f22)](https://app.codacy.com/gh/eresturo/scanadf2docspell/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eresturo_scanadf2docspell&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eresturo_scanadf2docspell)
 [![CodeFactor](https://www.codefactor.io/repository/github/eresturo/scanadf2docspell/badge)](https://www.codefactor.io/repository/github/eresturo/scanadf2docspell)
 [![MegaLinter](https://github.com/eresturo/scanadf2docspell/actions/workflows/mega-linter.yml/badge.svg)](https://github.com/eresturo/scanadf2docspell/actions/workflows/mega-linter.yml)
@@ -20,15 +20,16 @@ it to Docspell.
   sudo apt install sane python3 python3-pip libmagickwand-dev img2pdf sane-utils
   ```
 
-* See if [scanimage](https://linux.die.net/man/1/scanimage) is able to find your scanner
+* See if [scanimage](https://manpages.ubuntu.com/manpages/xenial/man1/scanimage.1.html)
+  is able to find your scanner
 
   ```bash
   scanimage -L
   ```
 
-  * if scanner is not found -> check `sane-find-scanner`
-    * Maybe also as sudo to see if it's an privileges problem
-    * If yes try `sudo adduser <username> lp` and logout/login and restart scanner
+    * if scanner is not found -> check `sane-find-scanner`
+        * Maybe also as sudo to see if it's an privileges problem
+        * If yes try `sudo adduser <username> lp` and logout/login and restart scanner
 
 ## Install
 
