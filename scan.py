@@ -133,6 +133,22 @@ if __name__ == "__main__":
         "However, the format is only temporary, "
         "scans are always converted to jpg and then bundled as pdf.",
     )
+    parser.add(
+        "--black_level",
+        type=float,
+        default=0.0,
+        help="Lower level (0.0 - 1.0) from which points are colored black. "
+        "Can be increased to blacken elements that appear dark gray. "
+        "0.0 disables blackening.",
+    )
+    parser.add(
+        "--white_level",
+        type=float,
+        default=1.0,
+        help="Upper level (1.0 - 0.0) from which points are colored white. "
+        "Can be lowered to turn elements that appear light gray white. "
+        "1.0 deactivates whitening.",
+    )
     args = parser.parse_args()
     validate_config(args)
     main(config=args)

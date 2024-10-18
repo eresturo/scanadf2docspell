@@ -25,6 +25,7 @@ class Preprocessor:
             self._rotate_page(page)
         if not self.config.skip_trim_pages:
             self._trim_image(page)
+        self._level_page(page)
         if not self.config.skip_empty_page_removal:
             self._remove_page_if_empty(page)
         self.exporter.save_as_jpg(page)
@@ -53,3 +54,6 @@ class Preprocessor:
     @staticmethod
     def _trim_image(page):
         page.image.trim(fuzz=0.2 * page.image.quantum_range, color="white")
+
+    def _level_page(self, page):
+        page.image.level(self.config.black_level, self.config.white_level)
